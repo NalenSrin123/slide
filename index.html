@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <img src="https://news.sabay.com.kh/img/logo.png" alt="">
+        </div>
+        <i class="fa-solid fa-bars"></i>
+    </header>
+    <nav>
+        <div class="menu">
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-house"></i></a></li>
+                <li><a href="#">
+                    កម្សាន្ត
+                </a></li>
+                <li><a href="#">
+                    បច្ចេកវិទ្យា
+                </a></li>
+                <li><a href="#">
+                    ជីវិតនិងសង្គម
+                </a></li>
+                <li><a href="#">    
+                    កីឡា
+                </a></li>
+            </ul>
+        </div> 
+    </nav>
+    <div class="container">
+        <i class="fa-solid fa-chevron-left"></i>
+        <i class="fa-solid fa-chevron-right"></i>
+        <div class="slide">
+            <img src="https://i.pinimg.com/736x/cb/be/53/cbbe53813cb8c0c85ddeda0d23de874d.jpg" alt="">
+        </div>
+        <div class="slide">
+            <img src="https://i.pinimg.com/736x/b4/06/d8/b406d8e6ca21f42ffaf04bdb5ed088ca.jpg" alt="">
+        </div>
+        <div class="slide">
+            <img src="https://i.pinimg.com/736x/f9/9b/fc/f99bfc047a9a79de97758c2fd001de00.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    const menuBar=document.querySelector('.fa-bars');
+    const navBar=document.getElementsByTagName('nav')[0];
+    menuBar.addEventListener('click',()=>{
+        navBar.classList.toggle('toggle')
+    })
+    navBar.addEventListener('click',()=>{
+        navBar.classList.remove('toggle')
+    })
+    $(document).ready(function(){
+        var slide=$('.slide');
+        const numSlide=slide.length;
+        i=0;
+        slide.eq(i).show();
+        setInterval(function(){
+            slide.eq(i).hide();
+            i++;
+            if(i>=numSlide){
+                i=0;
+                slide.eq(i).show();
+            }else{
+                slide.eq(i).show()
+            }
+        }, 3000);
+        $('.fa-chevron-right').click(function(){
+            slide.eq(i).hide();
+            i++;
+            if(i>=numSlide){
+                i=0;
+                slide.eq(i).show()
+            }else{
+                slide.eq(i).show()
+            }
+            
+        })
+
+        
+        
+    })
+</script>
